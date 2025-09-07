@@ -4,13 +4,19 @@ import Authentication from './Authentication';
 import Home from './Home';
 import { NavigationContainer } from '@react-navigation/native';
 
+export type RootStackParamList = {
+  Home: undefined;
+  Authentication: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 export default function Navigation() {
 
-  const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Auth" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Auth" component={Authentication} />
+      <Stack.Navigator initialRouteName="Authentication" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Authentication" component={Authentication} />
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -18,7 +24,3 @@ export default function Navigation() {
 }
 
 
-export type RootStackParamList = {
-  Home: undefined;
-  Authentication: undefined;
-};
