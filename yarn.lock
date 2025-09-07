@@ -3659,17 +3659,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cliui@npm:^7.0.2":
-  version: 7.0.4
-  resolution: "cliui@npm:7.0.4"
-  dependencies:
-    string-width: "npm:^4.2.0"
-    strip-ansi: "npm:^6.0.0"
-    wrap-ansi: "npm:^7.0.0"
-  checksum: 10/db858c49af9d59a32d603987e6fddaca2ce716cd4602ba5a2bb3a5af1351eebe82aba8dff3ef3e1b331f7fa9d40ca66e67bdf8e7c327ce0ea959747ead65c0ef
-  languageName: node
-  linkType: hard
-
 "cliui@npm:^8.0.1":
   version: 8.0.1
   resolution: "cliui@npm:8.0.1"
@@ -4696,7 +4685,6 @@ __metadata:
     react-native: "npm:0.81.1"
     react-native-safe-area-context: "npm:^5.5.2"
     react-native-screens: "npm:^4.16.0"
-    react-native-vector-icons: "npm:^10.3.0"
     react-test-renderer: "npm:19.1.0"
     typescript: "npm:^5.8.3"
   languageName: unknown
@@ -7700,7 +7688,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -7852,21 +7840,6 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10/f055d37b3abf96f42c15d61645441995884ed69b2a6b35f63a21abeb147b9df7e084447d2a329a424ee3686d703c25817ea588d3be9e6ebc38e5c653ebe5e05b
-  languageName: node
-  linkType: hard
-
-"react-native-vector-icons@npm:^10.3.0":
-  version: 10.3.0
-  resolution: "react-native-vector-icons@npm:10.3.0"
-  dependencies:
-    prop-types: "npm:^15.7.2"
-    yargs: "npm:^16.1.1"
-  bin:
-    fa-upgrade.sh: bin/fa-upgrade.sh
-    fa5-upgrade: bin/fa5-upgrade.sh
-    fa6-upgrade: bin/fa6-upgrade.sh
-    generate-icon: bin/generate-icon.js
-  checksum: 10/8f83860985f89be7c6a46298e23802aad12d1743987b015d7eaf4eb206d03e1818d3b48c1ad9a19ec1e0a3a17a8ecf22385ab52b0cfb16f6602a3df264ec87cb
   languageName: node
   linkType: hard
 
@@ -9476,13 +9449,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^20.2.2":
-  version: 20.2.9
-  resolution: "yargs-parser@npm:20.2.9"
-  checksum: 10/0188f430a0f496551d09df6719a9132a3469e47fe2747208b1dd0ab2bb0c512a95d0b081628bbca5400fb20dbf2fabe63d22badb346cecadffdd948b049f3fcc
-  languageName: node
-  linkType: hard
-
 "yargs-parser@npm:^21.1.1":
   version: 21.1.1
   resolution: "yargs-parser@npm:21.1.1"
@@ -9506,21 +9472,6 @@ __metadata:
     y18n: "npm:^4.0.0"
     yargs-parser: "npm:^18.1.2"
   checksum: 10/bbcc82222996c0982905b668644ca363eebe6ffd6a572fbb52f0c0e8146661d8ce5af2a7df546968779bb03d1e4186f3ad3d55dfaadd1c4f0d5187c0e3a5ba16
-  languageName: node
-  linkType: hard
-
-"yargs@npm:^16.1.1":
-  version: 16.2.0
-  resolution: "yargs@npm:16.2.0"
-  dependencies:
-    cliui: "npm:^7.0.2"
-    escalade: "npm:^3.1.1"
-    get-caller-file: "npm:^2.0.5"
-    require-directory: "npm:^2.1.1"
-    string-width: "npm:^4.2.0"
-    y18n: "npm:^5.0.5"
-    yargs-parser: "npm:^20.2.2"
-  checksum: 10/807fa21211d2117135d557f95fcd3c3d390530cda2eca0c840f1d95f0f40209dcfeb5ec18c785a1f3425896e623e3b2681e8bb7b6600060eda1c3f4804e7957e
   languageName: node
   linkType: hard
 
