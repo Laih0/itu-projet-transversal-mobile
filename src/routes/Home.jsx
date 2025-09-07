@@ -31,12 +31,15 @@ export default function HomeTabs() {
         tabBarActiveTintColor: '#2E7D32',
         tabBarInactiveTintColor: '#777',
         tabBarStyle: {
-          backgroundColor: '#fff',
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
+          backgroundColor: '#ffffff',
           height: 60,
           paddingBottom: 8,
-          elevation: 5,
+          elevation: 8, // Android shadow
+          borderTopWidth: 2,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -4 },
+          shadowOpacity: 0.17,
+          shadowRadius: 6,
         },
         tabBarIcon: getTabBarIcon(route.name),
       })}
