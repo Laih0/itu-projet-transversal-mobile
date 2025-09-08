@@ -1,14 +1,15 @@
-import { View, Text, Button } from 'react-native';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+
+const AuthStack = createNativeStackNavigator();
 
 export default function Authentication() {
-  const navigation = useNavigation();
   return (
-    <View>
-      <Text>Authentication</Text>
-
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-    </View>
+    <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+      <AuthStack.Screen name="Login" component={LoginScreen} />
+      <AuthStack.Screen name="Register" component={RegisterScreen} />
+    </AuthStack.Navigator>
   );
 }
