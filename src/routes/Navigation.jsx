@@ -10,7 +10,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Authentication"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Authentication" component={Authentication} />
