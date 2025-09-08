@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, Alert, StyleSheet } from 'react-native';
+import {
+  View,
+  TextInput,
+  Button,
+  Text,
+  Alert,
+  StyleSheet,
+  Image,
+} from 'react-native';
 import { api } from '../../services/api';
 
 export default function RegisterScreen({ navigation }) {
@@ -19,14 +27,24 @@ export default function RegisterScreen({ navigation }) {
     setLoading(false);
 
     if (res.success) {
-      Alert.alert('Succès', 'Compte créé, veuillez vous connecter !');
+      Alert.alert('Succès', 'Compte créé avec succès ! Connectez-vous.');
       navigation.replace('Login');
     }
   };
 
   return (
     <View style={styles.container}>
+      {/* Logo */}
+      <Image
+        source={require('../../assets/logo.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+
+      {/* Titre */}
       <Text style={styles.title}>Inscription</Text>
+
+      {/* Champs */}
       <TextInput
         placeholder="Nom complet"
         style={styles.input}
@@ -47,10 +65,17 @@ export default function RegisterScreen({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
-      <Button
-        title={loading ? 'Création...' : 'Créer le compte'}
-        onPress={handleRegister}
-      />
+
+      {/* Bouton */}
+      <View style={styles.buttonWrapper}>
+        <Button
+          title={loading ? 'Création...' : 'Créer un compte'}
+          onPress={handleRegister}
+          color="#ffffff"
+        />
+      </View>
+
+      {/* Lien vers login */}
       <Text style={styles.link} onPress={() => navigation.replace('Login')}>
         Déjà inscrit ? Se connecter
       </Text>
@@ -62,21 +87,42 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center', // centre horizontalement
     padding: 20,
     backgroundColor: '#fff',
+  },
+  logo: {
+    width: 160,
+    height: 160,
+    marginBottom: 20,
   },
   title: {
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#2E7D32',
+    textAlign: 'center',
   },
   input: {
+    width: '100%',
     borderWidth: 1,
-    padding: 10,
+    padding: 12,
     marginBottom: 15,
-    borderRadius: 5,
+    borderRadius: 8,
     borderColor: '#ccc',
+    backgroundColor: '#f9f9f9',
   },
-  link: { color: '#2E7D32', marginTop: 15, textAlign: 'center' },
+  buttonWrapper: {
+    width: '175',
+    marginTop: 10,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: '#2E7D32',
+  },
+  link: {
+    color: '#2E7D32',
+    marginTop: 20,
+    textAlign: 'center',
+    fontWeight: '500',
+  },
 });
