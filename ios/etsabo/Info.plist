@@ -35,6 +35,8 @@
 		<string></string>
 		<key>RCTNewArchEnabled</key>
 		<true/>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Nous utilisons votre localisation pour afficher les centres proches.</string>
 		<key>UIAppFonts</key>
 		<array>
 			<string>Ionicons.ttf</string>
