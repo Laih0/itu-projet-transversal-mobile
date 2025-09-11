@@ -10,7 +10,11 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, {
+  Marker,
+  // Polyline,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import centres from '../../assets/export.json';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -36,6 +40,7 @@ export default function CentersScreen() {
   const [userLocation, setUserLocation] = useState(null);
   const [closest, setClosest] = useState(null);
   const mapRef = useRef(null);
+  // const [selected, setSelected] = useState(null);
 
   // Récupère localisation utilisateur
   useEffect(() => {
@@ -167,6 +172,7 @@ export default function CentersScreen() {
             title={p.name}
             description={p.type}
             pinColor={closest?.id === p.id ? 'red' : 'green'}
+            // onPress={() => setSelected(p)}
           >
             {/* <Ionicons
               name={
@@ -183,6 +189,17 @@ export default function CentersScreen() {
             /> */}
           </Marker>
         ))}
+
+        {/* {userLocation && selected && (
+          <Polyline
+            coordinates={[
+              { latitude: userLocation.lat, longitude: userLocation.lon },
+              { latitude: selected.lat, longitude: selected.lon },
+            ]}
+            strokeColor="#fdfdfd"
+            strokeWidth={4}
+          />
+        )} */}
       </MapView>
       <TouchableOpacity style={styles.fab} onPress={zoomOnUser}>
         <Text style={{ color: '#fff', fontWeight: 'bold' }}>🎯</Text>
