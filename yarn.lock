@@ -2547,6 +2547,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/geojson@npm:^7946.0.13":
+  version: 7946.0.16
+  resolution: "@types/geojson@npm:7946.0.16"
+  checksum: 10/34d07421bdd60e7b99fa265441d17ac6e9aef48e3ce22d04324127d0de1daf7fbaa0bd3be1cece2092eb6995f21da84afa5231e24621a2910ff7340bc98f496f
+  languageName: node
+  linkType: hard
+
 "@types/graceful-fs@npm:^4.1.3":
   version: 4.1.9
   resolution: "@types/graceful-fs@npm:4.1.9"
@@ -4654,6 +4661,8 @@ __metadata:
     prettier: "npm:2.8.8"
     react: "npm:19.1.0"
     react-native: "npm:0.81.1"
+    react-native-geolocation-service: "npm:^5.3.1"
+    react-native-maps: "npm:^1.26.1"
     react-native-safe-area-context: "npm:^5.5.2"
     react-native-screens: "npm:^4.16.0"
     react-native-vector-icons: "npm:^10.3.0"
@@ -7725,6 +7734,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-geolocation-service@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "react-native-geolocation-service@npm:5.3.1"
+  checksum: 10/429c09dd245ef5b21f4fc98632224972c42f19041c48052be3bcba44e750ca2b75c210efc0036df3b822802d437b7f68530e4925f41138af435efbce5d71eae2
+  languageName: node
+  linkType: hard
+
 "react-native-is-edge-to-edge@npm:^1.2.1":
   version: 1.2.1
   resolution: "react-native-is-edge-to-edge@npm:1.2.1"
@@ -7732,6 +7748,22 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10/8fb6d8ab7b953c7d7cec8c987cef24f1c5348a293a85cb49c7c53b54ef110c0ca746736ae730e297603c8c76020df912e93915fb17518c4f2f91143757177aba
+  languageName: node
+  linkType: hard
+
+"react-native-maps@npm:^1.26.1":
+  version: 1.26.1
+  resolution: "react-native-maps@npm:1.26.1"
+  dependencies:
+    "@types/geojson": "npm:^7946.0.13"
+  peerDependencies:
+    react: ">= 18.3.1"
+    react-native: ">= 0.76.0"
+    react-native-web: ">= 0.11"
+  peerDependenciesMeta:
+    react-native-web:
+      optional: true
+  checksum: 10/ca2ee8a3d074dc759979d7403bd4076dde2304c939d9a88f84f28f49e0b20f663e1e3d81b1131246eaae591ddd21717ed084705e68e7ff4e30e6e12f32abfa29
   languageName: node
   linkType: hard
 
