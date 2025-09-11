@@ -1,23 +1,17 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ActivityIndicator,
   Alert,
   Button,
   StyleSheet,
-  Platform,
-  TouchableOpacity,
-  Text,
 } from 'react-native';
-import MapView, {
-  Marker,
-  // Polyline,
-  PROVIDER_GOOGLE,
-} from 'react-native-maps';
+
 import Geolocation from 'react-native-geolocation-service';
 import centres from '../../assets/export.json';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
+import Maplibre from '../../component/Maplibre';
+import Maplayer from '../../component/Maplayer';
 
 // Fonction distance Haversine
 function getDistance(lat1, lon1, lat2, lon2) {
@@ -39,8 +33,9 @@ export default function CentersScreen() {
   const [filter, setFilter] = useState('hospital');
   const [userLocation, setUserLocation] = useState(null);
   const [closest, setClosest] = useState(null);
-  const mapRef = useRef(null);
+
   // const [selected, setSelected] = useState(null);
+  const [mapType, setMapType] = useState('Maplibre');
 
   // Récupère localisation utilisateur
   useEffect(() => {
@@ -104,19 +99,9 @@ export default function CentersScreen() {
     }
   }, [filter, userLocation]);
 
-  const zoomOnUser = () => {
-    if (userLocation && mapRef.current) {
-      mapRef.current.animateToRegion(
-        {
-          latitude: userLocation.lat,
-          longitude: userLocation.lon,
-          latitudeDelta: 0.03, // ≈ zoom 16
-          longitudeDelta: 0.03,
-        },
-        1000,
-      );
-    }
-  };
+  // function toggleMapType() {
+  //   setMapType(prevType => (prevType === 'Maplibre' ? 'Google' : 'Maplibre'));
+  // }
 
   if (loading)
     return (
@@ -139,71 +124,15 @@ export default function CentersScreen() {
       </View>
 
       {/* Carte */}
-      <MapView
-        ref={mapRef}
-        style={{ flex: 1 }}
-        initialRegion={{
-          latitude: userLocation?.lat || -18.9,
-          longitude: userLocation?.lon || 47.5,
-          latitudeDelta: 5,
-          longitudeDelta: 5,
-        }}
-        mapType="satellite"
-        provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : undefined}
-        onMapReady={zoomOnUser}
-      >
-        {/* Marker position utilisateur */}
-        {userLocation && (
-          <Marker
-            coordinate={{
-              latitude: userLocation.lat,
-              longitude: userLocation.lon,
-            }}
-            title="Moi"
-            pinColor="blue"
-          />
-        )}
-
-        {/* Markers centres */}
-        {points.map(p => (
-          <Marker
-            key={p.id}
-            coordinate={{ latitude: p.lat, longitude: p.lon }}
-            title={p.name}
-            description={p.type}
-            pinColor={closest?.id === p.id ? 'red' : 'green'}
-            // onPress={() => setSelected(p)}
-          >
-            {/* <Ionicons
-              name={
-                p.type === 'pharmacy'
-                  ? 'medkit'
-                  : p.type === 'hospital'
-                  ? 'hospital'
-                  : p.type === 'clinic'
-                  ? 'circle'
-                  : 'doctor'
-              }
-              size={30}
-              color={closest?.id === p.id ? 'red' : 'green'}
-            /> */}
-          </Marker>
-        ))}
-
-        {/* {userLocation && selected && (
-          <Polyline
-            coordinates={[
-              { latitude: userLocation.lat, longitude: userLocation.lon },
-              { latitude: selected.lat, longitude: selected.lon },
-            ]}
-            strokeColor="#fdfdfd"
-            strokeWidth={4}
-          />
-        )} */}
-      </MapView>
-      <TouchableOpacity style={styles.fab} onPress={zoomOnUser}>
-        <Text style={{ color: '#fff', fontWeight: 'bold' }}>🎯</Text>
-      </TouchableOpacity>
+      {mapType === 'Maplibre' ? (
+        <Maplibre filter={filter} />
+      ) : (
+        <Maplayer
+          userLocation={userLocation}
+          points={points}
+          closest={closest}
+        />
+      )}
     </View>
   );
 }
